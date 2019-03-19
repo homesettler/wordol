@@ -13,14 +13,14 @@ class InlineStyleButton extends React.Component {
         this.state.styleType = props.styleType;
     }
     onClick(){
-        if(this.state.buttonType === 'default')
-            this.setState({
-                buttonType:'primary'
-            });
-        else
-            this.setState({
-                buttonType:'default'
-            });
+        // if(this.state.buttonType === 'default')
+        //     this.setState({
+        //         buttonType:'primary'
+        //     });
+        // else
+        //     this.setState({
+        //         buttonType:'default'
+        //     });
         this.props.onClick();
     }
     render() {

@@ -24,7 +24,7 @@ export default {
     }],
   ],
   routes: [{
-    path: '/newEditor/:userId/:fileId',
-    component: './$newEditor',
+    path: '/editor/:userId/:fileId',
+    component: './$editor',
   }]
 }
