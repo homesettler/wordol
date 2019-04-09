@@ -26,5 +26,11 @@ export default {
   routes: [{
     path: '/editor/:userId/:fileId',
     component: './$editor',
+  },{
+    path: '/login',
+    component:'./login',
+  },{
+    path: '/workSpace',
+    component:'./workSpace',
   }]
 }
