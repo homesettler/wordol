@@ -2,7 +2,7 @@
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
-  base:"/wordol",
+  base: '/wordol',
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
@@ -33,8 +33,5 @@ export default {
   },{
     path: '/workSpace',
     component:'./workSpace',
-  },{
-    path:'/',
-    component:'./index',
   }]
 }
