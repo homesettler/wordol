@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[2],{EDuE:function(e,n,a){e.exports={normal:"normal___1Mxp8",welcome:"welcome___3ZjpX",list:"list___1ZSRy"}},RXBc:function(e,n,a){"use strict";a.r(n);var l=a("q1tI"),t=a.n(l),o=a("EDuE"),c=a.n(o);n["default"]=function(){return t.a.createElement("div",{className:c.a.normal},t.a.createElement("span",null,"Hello"))}}}]);
