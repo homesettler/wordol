@@ -32,7 +32,7 @@ export default {
     routes:[
       {
         path:'/',
-        redirect:'/login'
+        redirect:'./login'
       },
       { 
         path: '/editor/:userId/:fileId',
