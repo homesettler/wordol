@@ -1,7 +1,7 @@
 {
   "name": "wordol",
   "version": "1.0.0",
-  "homepage": "https://homesettler.github.io/wordol",
+  "homepage": "https://homesettler.github.io/wordol/",
   "private": true,
   "scripts": {
     "start": "umi dev",
