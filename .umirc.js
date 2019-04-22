@@ -32,5 +32,8 @@ export default {
   },{
     path: '/workSpace',
     component:'./workSpace',
+  },{
+    path:'/',
+    component:'./index',
   }]
 }
