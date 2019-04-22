@@ -4,6 +4,7 @@ export default {
   treeShaking: true,
   base: '/wordol',
   publicPath: "https://homesettler.github.io/wordol/",
+  //exportStatic:{},
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
@@ -26,13 +27,19 @@ export default {
     }],
   ],
   routes: [{
-    path: '/editor/:userId/:fileId',
-    component: './$editor',
-  },{
-    path: '/login',
-    component:'./login',
-  },{
-    path: '/workSpace',
-    component:'./workSpace',
+    path:'/',
+    component: './index',
+    routes:[
+      {
+        path: '/editor/:userId/:fileId',
+        component: './editor',
+      },{
+        path: '/login',
+        component:'./login',
+      },{
+        path: '/workSpace',
+        component:'./workSpace',
+      }]
   }]
+
 }
