@@ -2,7 +2,7 @@ class WebSocketForOLEditor{
   static createSocket(userId,fileId,handleMessage,handleStateChange){
     let webSocket;
     if("WebSocket" in window) {
-      let newUrl = "ws://114.212.134.20:8080/word/"+userId+"/"+fileId;
+      let newUrl = "ws://192.168.1.139:8080/word/"+userId+"/"+fileId;
       webSocket = new WebSocket(newUrl);
       webSocket.onerror = ()=>{
         console.log("error")

@@ -45,6 +45,7 @@ class QuillEditor extends React.Component{
   }
   handleTextChange(delta,oldDelta,source){
     if(source==='user') {
+      
       //没有使用输入法输入
       if(this.isComposition === 'end'){
         this.messageHandler.generate(delta['ops']);
@@ -71,6 +72,7 @@ class QuillEditor extends React.Component{
   }
   handleMessage(evt){
     let message = JSON.parse(evt.data);
+    console.log(message);
     if(message['userId']!==this.props.userId){
       if(this.isComposition ==='end'){
         let deltaOps = this.messageHandler.receive(message);
