@@ -31,6 +31,10 @@ export default {
     component: './index',
     routes:[
       {
+        path:'/',
+        redirect:'/login'
+      },
+      { 
         path: '/editor/:userId/:fileId',
         component: './editor',
       },{
