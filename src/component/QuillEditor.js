@@ -7,6 +7,9 @@ class QuillEditor extends React.Component{
   constructor(props){
     super(props);
     this.isComposition = 'end';
+
+    
+
     //editor and delta
     this.editor = null;
     this.selection = null;
