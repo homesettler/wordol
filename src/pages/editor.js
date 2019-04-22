@@ -2,10 +2,10 @@ import React from 'react';
 import QuillEditor from '../component/QuillEditor';
 class Editor extends React.Component{
       render(){
-        let path = this.props.location['pathname'];
-        let paths = path.toString().split('/');
+        let userId = this.props.match.params.userId;
+        let fileId = this.props.match.params.fileId;
         return(
-          <QuillEditor userId={paths[2]} fileId={paths[3]}/>
+          <QuillEditor userId={userId} fileId={fileId}/>
         )
       }
 }
