@@ -2,8 +2,8 @@
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
-  base: '/wordol',
-  publicPath: "https://homesettler.github.io/wordol/",
+  //base: '/wordol',
+  //publicPath: "https://homesettler.github.io/wordol/",
   exportStatic:{},
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html

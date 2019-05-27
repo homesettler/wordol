@@ -6,10 +6,12 @@ class OpsHandler{
             message:"",
             fileId:"",
             userId:"",
+            atrributes:null,
             state:0,
         }
         deltaOps.forEach(element => {
             if(element.hasOwnProperty('retain')){
+                message['operation'] = 'update';
                 message['position'] = element['retain'];
             }
             else if(element.hasOwnProperty('insert')){

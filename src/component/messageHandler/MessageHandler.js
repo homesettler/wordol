@@ -15,6 +15,9 @@ class MessageHandler{
         this.receiveToBuffer = this.receiveToBuffer.bind(this);
         this.applyBuffer = this.applyBuffer.bind(this);
     }
+    openDocument(){
+        this.otherMsgs = this.otherMsgs - 1;
+    }
     generate(deltaOps){
         //apply op locally
         if(deltaOps.length===0)
@@ -30,10 +33,11 @@ class MessageHandler{
 
        
         let message = OpsHandler.ops2Message(deltaOps);
-        console.log(message);
+        
         message['fileId'] = this.fileId;
         message['userId'] = this.userId;
         message['state'] = this.otherMsgs;
+        console.log(message['state']);
         if(this.webSocket.readyState===this.webSocket.OPEN){
             this.webSocket.send(JSON.stringify(message));
         }
@@ -64,7 +68,7 @@ class MessageHandler{
         Object.keys(this.outgoing).forEach(element=>{
             msg = this.xform(msg,this.outgoing[element]);
         });
-        let deltaOps = OpsHandler.message2Ops(message);
+        let deltaOps = OpsHandler.message2Ops(msg);
         this.otherMsgs = this.otherMsgs + 1;
         return deltaOps;
         

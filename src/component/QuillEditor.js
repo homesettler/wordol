@@ -8,8 +8,6 @@ class QuillEditor extends React.Component{
     super(props);
     this.isComposition = 'end';
 
-    
-
     //editor and delta
     this.editor = null;
     this.selection = null;
@@ -27,6 +25,7 @@ class QuillEditor extends React.Component{
     this.messageHandler = new MessageHandler(this.state.webSocket,this.props.userId,this.props.fileId);
     this.handleComposition = this.handleComposition.bind(this);
     this.handleCompositionBuffer = this.handleCompositionBuffer.bind(this);
+    this.openstate = 0;
   }
   componentDidMount(){
     const options = {
@@ -48,7 +47,7 @@ class QuillEditor extends React.Component{
   }
   handleTextChange(delta,oldDelta,source){
     if(source==='user') {
-      
+
       //没有使用输入法输入
       if(this.isComposition === 'end'){
         this.messageHandler.generate(delta['ops']);
@@ -59,12 +58,6 @@ class QuillEditor extends React.Component{
         //let newOps = [];
         if(this.isComposition==='start'){
           this.isComposition = 'composing';
-          // oldOps.forEach((value)=>{
-          //   if(!value.hasOwnProperty('insert')){
-          //     newOps.push(value);
-          //   }
-          // })
-          // this.messageHandler.generate(newOps);
           this.compositionBuffer.push(oldOps);
         }
         else{
@@ -74,8 +67,9 @@ class QuillEditor extends React.Component{
     }
   }
   handleMessage(evt){
+    
     let message = JSON.parse(evt.data);
-    console.log(message);
+
     if(message['userId']!==this.props.userId){
       if(this.isComposition ==='end'){
         let deltaOps = this.messageHandler.receive(message);
@@ -87,6 +81,10 @@ class QuillEditor extends React.Component{
         this.messageHandler.receiveToBuffer(message);
       }
     }
+    if(this.openstate===0){
+      this.openstate=1;
+      this.messageHandler.openDocument();
+    }
   }
 
 
@@ -97,7 +95,6 @@ class QuillEditor extends React.Component{
       delta = delta.compose({ops:deltaOps});
     })
     this.compositionBuffer = [];
-    console.log(delta['ops']);
     return delta['ops'];
   }
 
@@ -107,7 +104,6 @@ class QuillEditor extends React.Component{
       console.log('start');
     }
     else if(e.type==='compositionupdate'){
-      console.log(e.data);
     }
     else{
       console.log('end');
